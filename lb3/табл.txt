@@ -1,0 +1,28 @@
+
+create table literature(
+ID_Book int primary key auto_increment,
+name varchar(100),
+date date,
+year int(4),
+publisher varchar(100),
+quantity int(10),
+ISBN int(10),
+number int(10),
+literate enum('Book', 'Journal', 'Newspaper'),
+FID_Resourse int,
+CONSTRAINT Resourse_fk FOREIGN KEY (FID_Resourse) REFERENCES RESOURSE (ID_Resourse)
+)
+
+create table BOOK_AUTHORS(
+FID_Book int,
+FID_Authors int,
+CONSTRAINT Book_fk FOREIGN KEY (FID_Book) REFERENCES LITERATURE (ID_Book),
+CONSTRAINT Author_fk2 FOREIGN KEY (FID_Authors) REFERENCES AUTHORS (ID_Authors))
+
+create table RESOURSE(
+ID_Resourse int primary key auto_increment,
+title varchar(100))
+
+create table AUTHORS(
+ID_Authors int primary key auto_increment,
+name varchar(100))
